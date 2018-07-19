@@ -17,7 +17,7 @@ namespace PizzaStore.Library.Models
 
         public Cheese()
         {
-            Name = ECheese.Mozarella;
+            Name = ECheese.Chedder;
             Price = 0M;
         }
     }

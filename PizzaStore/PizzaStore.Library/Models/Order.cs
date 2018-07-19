@@ -27,6 +27,7 @@ namespace PizzaStore.Library.Models
             get;
             set;
         }
+        
 
         #endregion
 
@@ -48,14 +49,16 @@ namespace PizzaStore.Library.Models
 
             foreach (var pizza in Pizzas)
             {
-                if (sum < 1000)
-                {
+               
+                
                     sum += pizza.Cost;
-                }
+                
             }
 
             return sum;
         }
+
+        
 
         public Pizza CreatePizza()
         {

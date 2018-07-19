@@ -10,6 +10,7 @@ namespace PizzaStore.Tests
     public class UserTests
     {
         private static User sut;
+        
 
         public UserTests()
         {

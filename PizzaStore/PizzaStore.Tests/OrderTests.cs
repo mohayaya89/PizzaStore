@@ -31,6 +31,8 @@ namespace PizzaStore.Tests
         public void Test_Order_Cost()
         {
             var expected = 0;
+            
+
 
             Assert.IsType<decimal>(sut.Cost);
             Assert.True(expected <= sut.Cost);
@@ -79,6 +81,8 @@ namespace PizzaStore.Tests
 
             Assert.Equal(expected, sut.ComputeCost());
         }
+
+
 
         #endregion
     }
