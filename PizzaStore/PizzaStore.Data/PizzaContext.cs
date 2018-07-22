@@ -1,20 +1,20 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using PizzaStore.Library.Models;
 
 namespace PizzaStore.Data
+
 {
     public class PizzaContext : DbContext
     {
-       public PizzaContext(DbContextOptionsBuilder builder)
+        public DbSet<User> Users
+        {
+            get;
+            set;
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder builder) // going to contain the writer 
         {
             builder.UseInMemoryDatabase("PizzaDB");
         }
-
-        //protected override void OnConfiguring()
-        //{
-
-        //}
-
-  
     }
 }

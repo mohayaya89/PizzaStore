@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PizzaStore.Library.Abstracts
 {
-    public class AIngredient
+    public class AIngredient : A_ID
     {
         
         public decimal Price

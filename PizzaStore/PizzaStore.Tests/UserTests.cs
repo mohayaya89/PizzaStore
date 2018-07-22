@@ -4,20 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Xunit;
+using PizzaStore.Data;
 
 namespace PizzaStore.Tests
 {
     public class UserTests
     {
-        private static User sut;
-        
+        public User sut;
+        private  EntityData entity = new EntityData();
+         
 
         public UserTests()
         {
             sut = new User()
             {
                 Name = "Ben Simmons",
-                Email = "ben@franklin.com"
+                Email = "ben@franklin.com",
+                Phone = 571-444-5555,
+                Address = "11730 Plaza America Dr #205, Reston, VA 20190"
             };
         }
 
@@ -44,8 +48,25 @@ namespace PizzaStore.Tests
         public void Test_UserPlaceOrder()
         {
             Assert.True(sut.PlaceOrder());
-            
-            
+        }
+
+        [Fact]
+        public void Test_SaveUser()
+        {
+            sut.PlaceOrder();
+            entity.Save(sut);
+
+            var exp = entity.Read("ben@franklin.com");
+            Assert.True(exp.Orders.Count == 1);
+
+
+            Assert.True(1 <= entity.GetAll().Count);
+        }
+
+        [Fact]
+        public void Test_WriteUser()
+        {
+
         }
 
         [Fact]

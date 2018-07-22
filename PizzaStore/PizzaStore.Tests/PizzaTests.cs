@@ -10,6 +10,7 @@ namespace PizzaStore.Tests
     public class PizzaTests
     {
         private Pizza sut;
+
         public PizzaTests()
         {
             sut = new Pizza();
@@ -18,43 +19,57 @@ namespace PizzaStore.Tests
         [Fact]
         public void Test_PizzaCrust()
         {
-            Assert.IsType<List<ECrust>>(sut.Crust);
+            Assert.IsType<List<Crust>>(sut.Crust);
         }
 
         [Fact]
         public void Test_PizzaCheese()
         {
-            Assert.IsType<List<ECheese>>(sut.Cheeses);           
+            Assert.IsType<List<Cheese>>(sut.Cheeses);           
         }
 
         [Fact]
         public void Test_PizzaSauce()
         {
-            Assert.IsType<List<ESauce>>(sut.Sauce);
+            Assert.IsType<List<Sauce>>(sut.Sauce);
         }
 
         [Fact]
         public void Test_PizzaToppings()
         {
-            Assert.IsType<List<ETopping>>(sut.Toppings);
+            Assert.IsType<List<Topping>>(sut.Toppings);
         }
 
         [Fact]
         public void Test_PizzaSize()
         {
-            Assert.IsType<List<ESize>>(sut.Size);
+            Assert.IsType<List<Size>>(sut.Size);
         }
 
         [Fact]
-        public void Test_NoMoreThan3Topping()
+        public void Test_PizzaCost()
         {
-            var expected = 3;
+            Assert.IsType<decimal>(sut.Cost);
+        }
 
-            sut.AddTopping(ETopping.Onion);
-            sut.AddTopping(ETopping.Pepperoni);
-            sut.AddTopping(ETopping.Chicken);
+        [Fact]
+        public void Test_MustHaveExactly1Crust()
+        {
+            var expected = 1;
 
-            Assert.True(expected >= sut.Toppings.Count);
+            sut.AddCrust(ECrust.Neopolitan);
+
+            Assert.True(expected == sut.Crust.Count);
+        }
+
+        [Fact]
+        public void Test_NoMoreThan1Sauce()
+        {
+            var expected = 1;
+
+            sut.AddSauce(ESauce.Alfredo);
+
+            Assert.True(expected >= sut.Sauce.Count);
         }
 
         [Fact]
@@ -69,21 +84,17 @@ namespace PizzaStore.Tests
         }
 
         [Fact]
-        public void Test_NoMoreThan1Sauce()
+        public void Test_NoMoreThan3Topping()
         {
-            var expected = 1;
+            var expected = 3;
 
-            sut.AddSauce(ESauce.Alfredo);
+            sut.AddTopping(ETopping.Onion);
+            sut.AddTopping(ETopping.Pepperoni);
+            sut.AddTopping(ETopping.Chicken);
 
-            Assert.True(expected >= sut.Sauce.Count);
+            Assert.True(expected >= sut.Toppings.Count);
         }
-
-        [Fact]
-        public void Test_PizzaCost()
-        {
-            Assert.IsType<decimal>(sut.Cost);
-        }
+        
     }
-
-    
+ 
 }

@@ -1,4 +1,4 @@
-﻿using PizzaStore.Data;
+﻿using PizzaStore.Library.Abstracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +6,9 @@ using System.Text;
 
 namespace PizzaStore.Library.Models
 {
-    public class Order
+    public class Order : A_ID
     {
         #region Order Properties
-
         public List<Pizza> Pizzas
         {
             get;
@@ -27,17 +26,15 @@ namespace PizzaStore.Library.Models
             get;
             set;
         }
-        
-
         #endregion
 
         public Order()
         {
             Pizzas = new List<Pizza>();
+           
         }
 
         #region Order Methods
-
         public void AddToOrder(Pizza pizza)
         {
             Pizzas.Add(pizza);
@@ -48,8 +45,7 @@ namespace PizzaStore.Library.Models
             var sum = decimal.Zero;
 
             foreach (var pizza in Pizzas)
-            {
-               
+            {  
                 
                     sum += pizza.Cost;
                 
@@ -58,13 +54,10 @@ namespace PizzaStore.Library.Models
             return sum;
         }
 
-        
-
         public Pizza CreatePizza()
         {
             return new Pizza();
         }
-
         #endregion
     }
 }

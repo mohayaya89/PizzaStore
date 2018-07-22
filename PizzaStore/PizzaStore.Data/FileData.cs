@@ -6,25 +6,23 @@ using System.Xml.Serialization;
 
 namespace PizzaStore.Data
 {
-    
-    public class FileData
+    public class FileData  //intergration tests (not there yet)
     {
-        private string path = @"./data/store.xml";
-
         public FileData()
         {
         }
+
 
         public T ReadFromFile<T>(string path) where T : class
         {
             T result = default(T);
             if (File.Exists(path))
             {
-                
                 using (var reader = new StreamReader(path))
                 {
                     var xml = new XmlSerializer(typeof(T));
-                    result = (T)xml.Deserialize(reader); //typeof(), equal()
+
+                    result = (T)xml.Deserialize(reader); //typeof, equal()
                     result = xml.Deserialize(reader) as T; //new(), same()
                 }
             }
@@ -39,18 +37,18 @@ namespace PizzaStore.Data
                 {
                     File.Create(path);
                 }
-                   
                 using (var writer = new StreamWriter(path))
                 {
                     var xml = new XmlSerializer(typeof(T));
+
                     xml.Serialize(writer, data);
                 }
+
             }
-            catch (Exception) 
+            catch
             {
                 return;
             }
         }
     }
-
 }
