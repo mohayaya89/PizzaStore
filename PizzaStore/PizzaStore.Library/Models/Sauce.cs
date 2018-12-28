@@ -8,6 +8,7 @@ namespace PizzaStore.Library.Models
 {
     public class Sauce : AIngredient
     {
+        
         public ESauce Name
         {
             get;

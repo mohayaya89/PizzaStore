@@ -12,19 +12,18 @@ namespace PizzaStore.Data
 
         public EntityData()
         {
+            
         }
-      
+        
         public void Save(User user)
         {
             context.Users.Add(user);
             context.SaveChanges();
         }
 
-        
-
-        public User Read(string email)
+        public User Read(int userId)
         {
-            return context.Users.SingleOrDefault(u => u.Email == email);
+            return context.Users.SingleOrDefault(u => u.UserId == userId);
         }
 
         public List<User> GetAll()

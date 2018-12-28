@@ -6,10 +6,13 @@ using System.Text;
 
 namespace PizzaStore.Library.Models
 {
-    public class Pizza : A_ID
+    public class Pizza 
     {
 
         #region Pizza Properties   
+
+        public int PizzaId { get; set; }
+
         private static readonly Dictionary<ESize, decimal> _sizePricing = new Dictionary<ESize, decimal>
         {
             { ESize.Small, 5M },

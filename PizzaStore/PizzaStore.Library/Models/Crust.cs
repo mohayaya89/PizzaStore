@@ -13,8 +13,7 @@ namespace PizzaStore.Library.Models
             get;
             set;
         }
-        
-        
+ 
         public Crust()
         {
             Name = ECrust.Thin;

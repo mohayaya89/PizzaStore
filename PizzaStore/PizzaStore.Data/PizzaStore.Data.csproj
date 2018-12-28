@@ -16,4 +16,8 @@
     <ProjectReference Include="..\PizzaStore.Library\PizzaStore.Library.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.Dotnet" Version="2.1.0-preview1-final"/>
+  </ItemGroup>
+
 </Project>

@@ -6,9 +6,15 @@ using System.Text;
 
 namespace PizzaStore.Library.Models
 {
-    public class Order : A_ID
+    public class Order 
     {
         #region Order Properties
+        public int OrderId
+        {
+            get;
+            set;
+        }
+        
         public List<Pizza> Pizzas
         {
             get;
@@ -31,7 +37,6 @@ namespace PizzaStore.Library.Models
         public Order()
         {
             Pizzas = new List<Pizza>();
-           
         }
 
         #region Order Methods

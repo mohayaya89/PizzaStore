@@ -4,14 +4,11 @@ using System.Text;
 
 namespace PizzaStore.Library.Abstracts
 {
-    public class AIngredient : A_ID
+    public class AIngredient 
     {
-        
-        public decimal Price
-        {
-            get;
-            set;
-        }
+        public int IngredientId { get; set; }
+
+        public decimal Price { get; set; }
 
 
 

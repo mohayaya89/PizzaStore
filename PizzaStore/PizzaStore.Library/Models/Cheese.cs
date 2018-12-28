@@ -8,12 +8,12 @@ namespace PizzaStore.Library.Models
 {
     public class Cheese : AIngredient
     {
+        
         public ECheese Name
         {
             get;
             set;
         }
-        
 
         public Cheese()
         {

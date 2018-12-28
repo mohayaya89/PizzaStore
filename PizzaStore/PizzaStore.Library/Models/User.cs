@@ -8,14 +8,16 @@ using PizzaStore.Library.Abstracts;
 namespace PizzaStore.Library.Models
 {
     
-    public class User : A_ID
+    public class User 
     {
-        [XmlArrayItem(ElementName = "OrderList")]
-        public List<Order> Orders
+        public int UserId
         {
             get;
             set;
         }
+
+        [XmlArrayItem(ElementName = "OrderList")]
+        public List<Order> Orders {get;set;}
 
         [XmlElement(ElementName = "EmailAddress")]
         public string Email
@@ -31,18 +33,18 @@ namespace PizzaStore.Library.Models
             set;
         }
 
-        [XmlElement(ElementName = "PhoneNumber")]
-        public double Phone
-        {
-            get;
-            set;
-        }
-        [XmlElement(ElementName = "Address")]
-        public string Address
-        {
-            get;
-            set;
-        }
+        //[XmlElement(ElementName = "PhoneNumber")]
+        //public double Phone
+        //{
+        //    get;
+        //    set;
+        //}
+        //[XmlElement(ElementName = "Address")]
+        //public string Address
+        //{
+        //    get;
+        //    set;
+        //}
 
         public User()
         {

@@ -12,7 +12,6 @@ namespace PizzaStore.Data
         {
         }
 
-
         public T ReadFromFile<T>(string path) where T : class
         {
             T result = default(T);
